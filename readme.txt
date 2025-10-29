@@ -24,3 +24,7 @@ R^2 Score                       | Random Forest        | Linear Regression
 
 Most accuracatd model is goes for Random Forest model!!
 Least one was DeepLearning model!
+
+Links:
+ Dataset link - https://www.kaggle.com/datasets/adharshinikumar/screentime-vs-mentalwellness-survey-2025
+ Live link - https://ramdisi.github.io/Screen-Time-vs-Mental-Wellness-Prediction/
