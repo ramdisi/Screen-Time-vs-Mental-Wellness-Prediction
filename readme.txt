@@ -25,6 +25,10 @@ R^2 Score                       | Random Forest        | Linear Regression
 Most accuracatd model is goes for Random Forest model!!
 Least one was DeepLearning model!
 
+**UPDATE**
+used GRID search CV and find the best hyper parameters for Random Forest Model
+in that model : R^2 Score - 0.875      MAE - 0.15     exactly right value prediction - 90.0%
+
 Links:
  Dataset link - https://www.kaggle.com/datasets/adharshinikumar/screentime-vs-mentalwellness-survey-2025
  Live link - https://ramdisi.github.io/Screen-Time-vs-Mental-Wellness-Prediction/
