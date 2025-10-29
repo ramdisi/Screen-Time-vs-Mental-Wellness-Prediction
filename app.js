@@ -2,7 +2,7 @@ let session;
 async function loadAndRunModel() {
     try {
         // Load the model
-        session = await ort.InferenceSession.create("model/linear_model.onnx");
+        session = await ort.InferenceSession.create("linear_model.onnx");
 
         // Prepare input
         const features = [age,screen_time_hours,work_screen_hours,leisure_screen_hours,sleep_hours,sleep_quality_1_5,
@@ -46,4 +46,5 @@ function encodeData() {
         & productivity_encoded!=null){
      loadAndRunModel();   
     }
+
 }
