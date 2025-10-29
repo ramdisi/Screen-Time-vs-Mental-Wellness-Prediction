@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mental Wellness Meter</title>
+        <link rel="stylesheet" href="styles/style.css" />
+    </head>
+
+    <body>
+        <div class="meter-container">
+            <h1 style="color: whitesmoke;">Mental Wellness Meter</h1>
+            <div class="gauge-wrapper">
+                <div class="gauge">
+                    <div class="gauge-arc"></div>
+                    <div class="needle" id="needle"></div>
+                    <div class="center-dot"></div>
+                    <div class="labels" id="labels"></div>
+                </div>
+                <div class="score-glow">
+                    <span id="score">0</span><span class="unit">/100</span>
+                </div>
+            </div>
+            <p class="wellness-message" id="message"></p>
+            <div class="meter-actions">
+                <button onclick="history.back()">Back to Form</button>
+                <button onclick="location.reload()">Retake Assessment</button>
+            </div>
+            <div class="about-section">
+                <h3>About This Assessment</h3>
+                <p>This wellness score is calculated based on your sleep quality, exercise habits, stress levels,
+                    productivity, social connections, and screen time. Remember, this is a general assessment and not a
+                    substitute for professional mental health advice.</p>
+            </div>
+
+            <div class="labels" id="labels"></div>
+
+            <script>
+                const finalScore = 52;
+                const needle = document.getElementById('needle');
+                const scoreText = document.getElementById('score');
+                const message = document.getElementById('message');
+
+                // Animate needle and score
+                let current = 0;
+                const interval = setInterval(() => {
+                    if (current >= finalScore) {
+                        clearInterval(interval);
+                        message.textContent = "🌟 Excellent Wellness! Your mental wellness is in great shape! Keep up the good habits.";
+                        return;
+                    }
+                    current++;
+                    scoreText.textContent = current;
+                    const angle = (current / 100) * 180 - 90;
+                    needle.style.transform = `rotate(${angle}deg)`;
+                }, 20);
+
+                // Generate arc labels (right-rounded)
+                const labelsContainer = document.getElementById('labels');
+                const radius = 90;
+                const centerX = 100;
+                const centerY = 100;
+                for (let i = 0; i <= 100; i += 10) {
+                    const angle = (i / 100) * Math.PI; // 0 to π radians
+                    const x = centerX + radius * Math.cos(angle - Math.PI);
+                    const y = centerY + radius * Math.sin(angle - Math.PI);
+                    const label = document.createElement('div');
+                    label.className = 'label';
+                    label.textContent = i;
+                    label.style.left = `${x}px`;
+                    label.style.top = `${y}px`;
+                    labelsContainer.appendChild(label);
+                }
+            </script>
+        </div>
+    </body>
+
+    </html>
